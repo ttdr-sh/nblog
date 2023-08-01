@@ -40,7 +40,7 @@
 				</div>
 			{:else}
 				<div class="cursor-pointer" on:click={() => (showNpub = true)}>
-					Click to show npub
+					點擊顯示 npub
 				</div>
 			{/if}
 			{#if profile && profile.nip05}
@@ -77,7 +77,7 @@
 	</div>
 
 	<div class="flex flex-col">
-		<span class="font-semibold uppercase">About</span>
+		<span class="font-semibold uppercase">關於</span>
 		<h1 class="text-3xl font-bold md:text-4xl">
 			{#if profile && profile.display_name}
 				{profile.display_name}
@@ -94,15 +94,15 @@
 				No Bio
 			{/if}
 		</p>
-		<hr class="border-muted-dark my-5" />
-		<h2 class="text-2xl font-semibold">Posts Authored</h2>
+		<hr class="border-black dark:border-muted-dark my-5" />
+		<h2 class="text-2xl font-semibold">最近的文章</h2>
 		{#if data.posts[0]}
 			{#each data.posts as post, i}
 				<div class="py-8">
 					<ListPost {post} />
 				</div>
 				{#if data.posts[i + 1]}
-					<hr class="border-muted-dark" />
+					<hr class="border-black dark:border-muted-dark" />
 				{/if}
 			{/each}
 		{:else}
