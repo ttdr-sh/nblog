@@ -24,9 +24,9 @@
 			<div class="text-xs lg:text-sm">
 				{new Date(published_at ? Number(published_at[0]) * 1000 : 0).toLocaleDateString()}
 				<span class="text-muted-dark">/</span>
-				{readingTime(post.content)} min read
+				{readingTime(post.content)} 分鐘
 			</div>
-			<p class="text-muted-bright xl:text-xl">{summary ? summary[0] : "Summary"}</p>
+			<p class="text-black dark:text-muted-bright xl:text-xl">{summary ? summary[0] : "Summary"}</p>
 		</a>
 	</div>
 	{#if image}
