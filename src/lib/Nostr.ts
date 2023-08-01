@@ -17,11 +17,12 @@ export default class Nostr extends SimplePool {
 				...this.relays,
 				"wss://relay.damus.io",
 				"wss://relay.snort.social",
-				"wss://eden.nostr.land",
-				"wss://puravida.nostr.land",
-				"wss://sg.qemura.xyz",
-				"wss://offchain.pub",
-				"wss://nostr.mom",
+				"wss://nostr-pub.wellorder.net",
+				"wss://nos.lol",
+				"wss://nostr-relay.nokotaro.com",
+				"wss://relay.nostr.wirednet.jp",
+				"wss://relay.nostr.band",
+				"wss://relay.txinito.xyz",
 			];
 		}
 		this.pubkeys = PUBLIC_PUBKEYS.split(",");
@@ -55,7 +56,7 @@ export default class Nostr extends SimplePool {
 				this.pubkey = event.pubkey;
 				return event;
 			}
-			alert("No NIP-07 compatible extension found.");
+			alert("沒有可用的 NIP-07 擴充套件。");
 		}
 
 		return null;
