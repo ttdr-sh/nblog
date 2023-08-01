@@ -9,7 +9,7 @@
 			#{isNostr ? tag[1] : tag}
 		</a>
 		{#if tags[i + 1]}
-			<span class="text-muted-dark">/</span>
+			<span class="text-black dark:text-muted-dark">/</span>
 		{/if}
 	{/each}
 </div>
