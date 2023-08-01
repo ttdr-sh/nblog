@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>Home - {PUBLIC_NAME}</title>
+	<title>主頁 - {PUBLIC_NAME}</title>
 	<meta property="og:title" content="Home" />
 </svelte:head>
 
@@ -24,7 +24,7 @@
 		</div>
 		{#if data.posts[i + 1]}
 			<div class="pb-8">
-				<hr class="border-muted-dark" />
+				<hr class="border-black dark:border-muted-dark" />
 			</div>
 		{/if}
 	{/each}
