@@ -92,7 +92,7 @@
 				<div class="text-xs">
 					<Tags tags={post.tags.filter((v) => v[0] === "t")} />
 				</div>
-				<div class="text-muted-bright ml-auto flex">
+				<div class="text-black dark:text-muted-bright ml-auto flex">
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<div
 						class="transition-500 cursor-pointer transition-colors ease-linear hover:text-black hover:dark:text-white"
@@ -118,7 +118,7 @@
 			<h1 class="text-3xl font-bold md:text-4xl">
 				<a href={url} target="_self">{title ? title[0] : "Title"}</a>
 			</h1>
-			<p class="text-muted-bright pt-1">{summary ? summary[0] : "Summary"}</p>
+			<p class="text-black dark:text-muted-bright pt-1">{summary ? summary[0] : "Summary"}</p>
 			<div class="my-3 flex">
 				{#if author && author.picture}
 					<img
@@ -153,8 +153,8 @@
 					<div>
 						{new Date(
 							published_at ? Number(published_at[0]) * 1000 : 0
-						).toLocaleDateString()} <span class="text-muted-dark">/</span>
-						{readingTime(post.content)} min read
+						).toLocaleDateString()} <span class="text-black dark:text-muted-dark">/</span>
+						{readingTime(post.content)} 分鐘
 					</div>
 				</div>
 			</div>
