@@ -27,9 +27,8 @@
 		</a>
 		<div class="ml-auto font-semibold uppercase">
 			<ul class="flex sm:gap-2 lg:gap-4">
-				<li><a class="px-3 py-2" href="/" target="_self">Home</a></li>
-				<li><a class="px-3 py-2" href="/posts" target="_self">Posts</a></li>
-				<li><a class="px-3 py-2" href="/atom" target="_self">Feed</a></li>
+				<li><a class="px-3 py-2" href="/" target="_self">主頁</a></li>
+				<li><a class="px-3 py-2" href="/posts" target="_self">文章</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -45,15 +44,15 @@
 		Powered by <a class="underline" href="https://github.com/jacany/nblog">nblog</a> v{version}
 	</div>
 	<div class="text-right">
-		This website is published under the <a
+		&copy; 太太黨人 2023. <a
 			class="underline"
-			href="https://github.com/jacany/nblog/tree/master/LICENSE">MIT License</a
+			href="">石磊</a
 		>
 	</div>
 </footer>
 
 <style lang="postcss">
 	:global(html, body) {
-		@apply font-sans subpixel-antialiased dark:bg-[#242731] dark:text-white;
+		@apply font-sans subpixel-antialiased bg-[#f2eecb] text-black  dark:bg-[#242731] dark:text-white;
 	}
 </style>
