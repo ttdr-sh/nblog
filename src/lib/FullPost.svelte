@@ -87,7 +87,7 @@
 	for (let i = 0; i < references.length; i++) {
   		let {text, profile, event, address} = references[i]
   		let augmentedReference = profile
-    	? `<strong>@${profilesCache[profile.pubkey].name}</strong>`
+    		? `<strong>@${profilesCache[profile.pubkey].name}</strong>`
 		: event
 		? `<em>${eventsCache[event.id].content.slice(0, 5)}</em>`
 		: address
