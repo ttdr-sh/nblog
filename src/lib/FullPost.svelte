@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Event, nip19 } from "nostr-tools";
+	import { type Event, nip19, parseReferences } from "nostr-tools";
 	import showdown from "showdown";
 	import { readingTime, getTagValues } from "$lib/util";
 	import Tags from "$lib/Tags.svelte";
