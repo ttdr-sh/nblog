@@ -170,6 +170,11 @@
 			>
 				{@html postContent}
 			</div>
+			<div>
+				<button class="rounded-lg p-4 bg-black text-white mx-auto my-5">
+				  <a href="https://getalby.com/p/ttdr">打賞 ⚡️</a>
+				</button>
+			</div>
 		</div>
 	</article>
 	{#if PUBLIC_REACTIONS.toLowerCase() === "true"}
