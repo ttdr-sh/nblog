@@ -81,6 +81,21 @@
 	let copyIconScale = spring(1);
 	let tweetIconScale = spring(1);
 
+	// References
+	let references = parseReferences(post)
+	let simpleAugmentedContent = post.content
+	for (let i = 0; i < references.length; i++) {
+  		let {text, profile, event, address} = references[i]
+  		let augmentedReference = profile
+    	? `<strong>@${profilesCache[profile.pubkey].name}</strong>`
+		: event
+		? `<em>${eventsCache[event.id].content.slice(0, 5)}</em>`
+		: address
+		? `<a href="https://nblog.ttdr.sh/posts/${address.identifier}">[${address.identifier}]</a>`
+		: text
+		simpleAugmentedContent = simpleAugmentedContent.replaceAll(text, augmentedReference)
+	}
+
 	const converter = new showdown.Converter();
 	const postContent = converter.makeHtml(post.content);
 </script>
