@@ -5,9 +5,7 @@
 	import Tags from "$lib/Tags.svelte";
 	import Fa from "svelte-fa";
 	import { spring } from "svelte/motion";
-	import { faLink } from "@fortawesome/free-solid-svg-icons";
-	import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-	import { onMount } from "svelte";
+	import { faLink } from "@fortawesome/free-solid-svg-icons";	import { onMount } from "svelte";
 	import Reaction from "$lib/Reaction.svelte";
 	import { nostr } from "$lib/stores";
 	import { browser } from "$app/environment";
@@ -32,6 +30,7 @@
 			url = window.location.href + "posts/" + getTagValues(post.tags, "d")[0];
 		}
 	});
+
 
 	let reactions: Event[] = [];
 	let author: unknown;
@@ -79,15 +78,13 @@
 	}
 
 	let copyIconScale = spring(1);
-	let tweetIconScale = spring(1);
 
-	// References
 	let references = parseReferences(post)
 	let simpleAugmentedContent = post.content
 	for (let i = 0; i < references.length; i++) {
   		let {text, profile, event, address} = references[i]
   		let augmentedReference = profile
-    		? `<strong>@${profilesCache[profile.pubkey].name}</strong>`
+    	? `<strong>@${profilesCache[profile.pubkey].name}</strong>`
 		: event
 		? `<em>${eventsCache[event.id].content.slice(0, 5)}</em>`
 		: address
@@ -98,6 +95,7 @@
 
 	const converter = new showdown.Converter();
 	const postContent = converter.makeHtml(simpleAugmentedContent);
+
 </script>
 
 <div class="flex flex-col">
@@ -110,7 +108,7 @@
 				<div class="text-black dark:text-muted-bright ml-auto flex">
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<div
-						class="transition-500 cursor-pointer transition-colors ease-linear hover:text-black hover:dark:text-white"
+						class="transition-500 cursor-pointer transition-colors ease-linear hover:text-muted-dark hover:dark:text-muted-dark"
 						on:mousedown={() => copyIconScale.set(0.8)}
 						on:mouseleave={() => copyIconScale.set(1)}
 						on:mouseup={() => copyIconScale.set(1)}
@@ -118,16 +116,6 @@
 					>
 						<Fa icon={faLink} scale={$copyIconScale} />
 					</div>
-					<a
-						aria-label="Share to Twitter"
-						class="transition-500 ml-2 transition-colors ease-linear hover:text-black hover:dark:text-white"
-						href="https://twitter.com/intent/tweet?url={url}"
-						on:mousedown={() => tweetIconScale.set(0.8)}
-						on:mouseleave={() => tweetIconScale.set(1)}
-						on:mouseup={() => tweetIconScale.set(1)}
-					>
-						<Fa icon={faTwitter} scale={$tweetIconScale} />
-					</a>
 				</div>
 			</div>
 			<h1 class="text-3xl font-bold md:text-4xl">
@@ -137,7 +125,7 @@
 			<div class="my-3 flex">
 				{#if author && author.picture}
 					<img
-						class="my-auto h-14 w-14 rounded-full"
+						class="placeholder my-auto h-14 w-14 rounded-full"
 						src={author.picture}
 						alt="Profile"
 					/>
@@ -152,7 +140,7 @@
 				{/if}
 				<div class="my-auto flex flex-col pl-3">
 					<a
-						class="gap-1.5 font-mono text-accent"
+						class="gap-1.5 font-mono text-orange-600"
 						href="/profile/{nip19.npubEncode(post.pubkey)}"
 					>
 						{#if author && author.display_name}
@@ -181,7 +169,7 @@
 				alt="Post"
 			/>
 			<div
-				class="prose prose-lg prose-gray font-serif dark:prose-invert prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-h5:text-base prose-h6:text-base prose-code:rounded prose-code:bg-gray-200 prose-img:rounded-xl prose-code:dark:bg-slate-900"
+				class="prose prose-lg prose-black font-serif dark:prose-invert prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-h5:text-base prose-h6:text-base prose-code:rounded prose-code:bg-gray-200 prose-img:rounded-xl prose-code:dark:bg-slate-900 prose-blockquote:border-gray-500 dark:prose-blockquote:border-muted-bright "
 			>
 				{@html postContent}
 			</div>
@@ -218,4 +206,5 @@
 			</div>
 		</div>
 	{/if}
+
 </div>
