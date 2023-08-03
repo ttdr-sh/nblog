@@ -97,7 +97,7 @@
 	}
 
 	const converter = new showdown.Converter();
-	const postContent = converter.makeHtml(post.content);
+	const postContent = converter.makeHtml(simpleAugmentedContent);
 </script>
 
 <div class="flex flex-col">
